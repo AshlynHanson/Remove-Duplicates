@@ -32,12 +32,12 @@ echo "==============================================================="
 echo "               Size                         File Path"
 echo "==============================================================="
 
-# finds all of the nonempty files in the given directory and its size
+# finds all of the files in the given directory and its size
 # by its md5sum. Those files are piped into sort and organized in
 # numerical order. That is then piped into uniq which finds duplicate
 # files that are next to each other consecutively. The -w32 command
 # causes uniq to only compare the first 32 values. The -dD prints
 # all of the duplicate values.
-find $directory ! -empty -type f -exec md5sum {} + | sort | uniq -w32 -dD
+find $directory ! -type f -exec md5sum {} + | sort | uniq -w32 -dD
 
 exit 0
